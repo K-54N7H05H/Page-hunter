@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Hunt | "<%=search%>" </title>
+    <style>
+        html,
+        body,
+        * {
+            box-sizing: border-box;
+            color: #cdd6f4;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            background-color: #181825;
+        }
+
+        .main {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 75vw;
+            border-radius: 3px;
+            padding: 1vw;
+        }
+
+        .wrapper {
+            padding: 8px;
+        }
+
+        *:focus {
+            outline: none;
+        }
+
+        .elements {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .elements * {
+            font-size: 16px;
+        }
+
+        .elements input[type=text] {
+            padding: 8px;
+            flex: 1;
+            background: #585b70;
+            color: #cdd6f4;
+            border: 2px solid #11111b;
+
+            padding-left: 16px;
+
+            border-top-left-radius: 16px;
+            border-bottom-left-radius: 16px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .elements input[type="submit"] {
+            padding: 8px;
+            flex: 0.25;
+            background: #585b70;
+            color: #cdd6f4;
+            border: 2px solid #11111b;
+
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+        }
+
+        #search:focus+#submit {
+            background: #89b4fa;
+        }
+
+        .result-container {
+            background: #1e1e2e;
+            border: 2px solid #9399b2;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .result {
+            background: #313244;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .result .result-url a {
+            color: #a6e3a1;
+        }
+
+        .result .result-title a {
+            color: #cba6f7;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1 style="text-align: center;">Page Hunter</h1>
+        <form action="q" method="GET">
+            <div class="wrapper">
+                <div class="elements">
+                    <input type="text" placeholder="Type something and press ENTER" name="search" id="search"
+                        value="<%=search%>" />
+                    <input type="submit" value="Search" id="search" />
+                </div>
+            </div>
+        </form>
+        <div class="result-container">
+            <% if(result.length <=0) { %>
+                <div class="result">
+                    No matching results for "<%=search%>".
+                        Page hunter is still in development and thus requires lot of web scraping to function correctly
+                </div>
+                <% } else { %>
+                    <span>Showing results for "<%=search%>"</span><br /><br />
+                    <% for(var i=0; i < result.length; ++i) { %>
+                        <div class="result">
+                            <div class="result-title">
+                                <a href="<%=result[i].url%>">
+                                    <b>
+                                        <%=result[i].title%>
+                                    </b>
+                                </a>
+                            </div>
+                            <div class="result-url">
+                                <a href="<%=result[i].url%>">
+                                    <%=result[i].url%>
+                                </a>
+                            </div>
+                        </div><br />
+                        <% } %>
+                            <% } %>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Page Hunter </title>
+    <style>
+        html,
+        body,
+        * {
+            box-sizing: border-box;
+            color: #cdd6f4;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            background-color: #181825;
+        }
+
+        .main {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 75vw;
+            height: fit-content;
+            border-radius: 3px;
+            padding: 1vw;
+        }
+
+        .wrapper {
+            padding: 8px;
+        }
+
+        *:focus {
+            outline: none;
+        }
+
+        .elements {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .elements * {
+            font-size: 16px;
+        }
+
+        .elements input[type=text] {
+            padding: 8px;
+            flex: 1;
+            background: #585b70;
+            color: #cdd6f4;
+            border: 2px solid #11111b;
+
+            padding-left: 16px;
+
+            border-top-left-radius: 16px;
+            border-bottom-left-radius: 16px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .elements input[type="submit"] {
+            padding: 8px;
+            flex: 0.25;
+            background: #585b70;
+            color: #cdd6f4;
+            border: 2px solid #11111b;
+
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+        }
+
+        #search:focus+#submit {
+            background: #89b4fa;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1 style="text-align: center;">Page Hunter</h1>
+        <form action="q" method="GET">
+            <div class="wrapper">
+                <div class="elements">
+                    <input type="text" placeholder="Type something and press ENTER" name="search" id="search" />
+                    <input type="submit" value="Search" />
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
